@@ -1,10 +1,10 @@
-// Assignment Code
+  // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   var passwordLength = parseInt(
   prompt("Choose a number between 8 and 128"));
-
+  //creating parameters for password and program to function correctly
     if (passwordLength < 8 || passwordLength > 128) {
     alert("Please choose a number between 8 and 128"); 
     return;
@@ -15,13 +15,13 @@ function generatePassword() {
   var uppercase = confirm("Include uppercase letters?");
   var numeric = confirm("Include numeric characters?");
   var special = confirm("Include special characters?");
-
+  
+  //created alert to function properly and created conditions
     if (!lowercase &&!uppercase &&!numeric &&!special) {
     alert("You must choose at least one character type.");
     return;
   }
     var password = "";
-    //var possibleCharacters = "";
     var characterTypes = "";
 
     if (lowercase) {
@@ -42,6 +42,7 @@ function generatePassword() {
     }
     alert("You have selected: " + characterTypes + ".");
 
+  //created for loop to create random password
     for (var i = 0; i < passwordLength; i++) {
       password += characterTypes[Math.floor(Math.random() * characterTypes.length)];
     }
@@ -49,6 +50,7 @@ function generatePassword() {
       return password;
 
 }
+  //writing the password in the box
   function writePassword() {
     var password= generatePassword(); 
     var passwordText = document.querySelector("#password");
@@ -58,5 +60,5 @@ function generatePassword() {
 }
 
 
-// Add event listener to generate button
+  // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
